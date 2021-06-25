@@ -39,13 +39,30 @@ function renderOneCarOffer(OneCarOffer) {
        </div>
     
      <div class="offerdetails">
-       <h2 class="monthly">${OneCarOffer.monthly} monthly</h2>
-       <h2 class="duration">${OneCarOffer.duration} momths</h2>
-       <h2 class="down">${OneCarOffer.down} down</h2>
+       <div class="monthly">
+       <ul class="nobullet">
+       <li>$${OneCarOffer.monthly}</li>
+       <li>MONTHLY</li>
+       </ul> 
+       </div>
+
+       <div class="duration">
+       <ul class="nobullet">
+       <li>${OneCarOffer.duration} </li>
+       <li>MONTHS</li>
+       </ul> 
+       </div>
+
+       <div class="down">
+       <ul class="nobullet">
+       <li>$${OneCarOffer.down}</li>
+       <li>DOWN</li>
+       </ul> 
+       </div>
      </div>
 
     <div id="text">
-    <ul>
+    <ul class="textlist">
     <li>ksjcbqscjqsckjqkc</li>
     <li>ksjcbqscjqsckjqkc ksjcbqscjqsckjqkc ksjcbqscjqsckjqkc</li>
     <li>ksjcbqscjqsckjqkc ksjcbqscjqsckjqkc</li>

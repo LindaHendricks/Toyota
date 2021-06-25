@@ -92,8 +92,8 @@ h2 {
 }
 
 .offerinfo {
-    height: 1200px;
-    position: relative
+    /* height: 1200px;
+    position: relative */
 }
 
  
@@ -139,21 +139,67 @@ transform: translate(-50%, -50%);
 
 }
 
-#text {
-    width: 25%;
+ul.nobullet {
+    list-style-type: none; /* Remove bullets */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margins */
+  }
+
+ul.textlist {
+    list-style-type: '-';
+    
+}
+
+.monthly {
+    height: 30px;
+    width: 30.33%;
     float: left;
-    padding-left: 130px;
-    padding-right: 130px;
+    text-align:  right;
+    margin: 0 1.5%;
+    padding-top: 20px;
+    
+}
+
+.duration {
+    height: 30px;
+    width: 30.33%;
+    float: left;
+    text-align:  center;
+    margin: 0 1.5%;
+    padding-top: 20px;
+    
+}
+
+
+.down {
+    height: 30px;
+    width: 30.33%;
+    float: left;
+    text-align:  left;
+    margin: 0 1.5%;
+    padding-top: 20px;
+    
+}
+
+#text {
+   
+    width: 30%;
+    float: left;
+    padding-left: 420px;
+    padding-right: 30px;
     padding-bottom: 130px;
-    padding-top:5px
+    padding-top:25px;
+    margin-top: 0
 }
 
 #btnaction {
-    width: 25%;
+    
+    width: 30%;
     float: left;
-    padding-left: 130px;
-    padding-right: 130px;
+    padding-left: 80px;
+    padding-right: 50px;
     padding-bottom: 130px;
-    padding-top:5px
+    padding-top: 25px;
+    margin-top: 0
 
 }
