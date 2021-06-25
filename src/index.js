@@ -1,24 +1,29 @@
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
 
+const carModel = urlParams.get('model');
+
+const url = "https://dv.stk2.pro/dev/test/api.php?model=" + carModel
+
+// "https://dv.stk2.pro/dev/test/api.php?model=" + carModel;
 // urlResultError - "https://dv.stk2.pro/dev/test/api.php";
 // urlResultCamrySuccess -  "https://dv.stk2.pro/dev/test/api.php?model=camry";
 // urlResultCorollaSuccess - "https://dv.stk2.pro/dev/test/api.php?model=corolla";
-const url = "https://dv.stk2.pro/dev/test/api.php?model=camry";
 
 
 document.addEventListener("DOMContentLoaded",successFail() );
 
-
 function successFail() {
     fetch(url)
       .then((response) => response.json())
-      .then((jsonBody) => renderResponseReturn(jsonBody));
+      .then((OneCarOffer) => renderResponseReturn(OneCarOffer));
   }
 
-function renderResponseReturn(jsonBody) {
-  if (jsonBody.result == "success") {
-    renderOneCarOffer(jsonBody);
-  } else if (jsonBody.result == "error") {
-    renderResultError(jsonBody);
+function renderResponseReturn(OneCarOffer) {
+  if (OneCarOffer.result == "success") {
+    renderOneCarOffer(OneCarOffer);
+  } else if (OneCarOffer.result == "error") {
+    renderResultError(OneCarOffer);
   }
 }
 
@@ -27,42 +32,53 @@ function renderOneCarOffer(OneCarOffer) {
   const div = document.createElement(`div`);
   div.dataset.id = OneCarOffer.id;
 
-  let titleImage = "";
+//   let titleImage = "";
 
-  if (OneCarOffer.model == "Camry") {
-    titleImage = "./assets/offercamry.jpg";
-  } else if (OneCarOffer.model == "Corolla") {
-    titleImage = "./assets/offercorolla.jpg";
-  }
+//   if (OneCarOffer.model == "Camry") {
+//     titleImage = "./assets/offercamry.jpg";
+//   } else if (OneCarOffer.model == "Corolla") {
+//     titleImage = "./assets/offercorolla.jpg";
+//   }
 
-  // I decided not to fetch the image so it could look like the psd you sent by including the img "page offer Corolla/Camry".
+  const givenNumber = OneCarOffer.down;
+  console.log(givenNumber)
 
+  internationalNumberFormat = new Intl.NumberFormat('en-US')
+  const downWithcomma = (internationalNumberFormat.format(givenNumber))
+  
 
   div.innerHTML = `
 
-    <div class="offerinfo">
-       <div class="img">
-       <img src=${titleImage} alt=${OneCarOffer.model}>
-       </div>
+    
+
+     <div id="overlaping">
+       <div class="header">
+         <img id="imgsuccess" src="./assets/empty_header.jpg" alt="Toyota Store">
+      </div>
+     <div class="car">
+         <img class="imgcar" src=${OneCarOffer.img} alt=${OneCarOffer.model}>
+      </div>
+     </div>
+      
     
      <div class="offerdetails">
        <div class="monthly">
        <ul class="nobullet">
-       <li>$${OneCarOffer.monthly}</li>
+       <li class="listyle" >$${OneCarOffer.monthly}</li>
        <li>MONTHLY</li>
        </ul> 
        </div>
 
        <div class="duration">
        <ul class="nobullet">
-       <li>${OneCarOffer.duration} </li>
+       <li class="listyle" >${OneCarOffer.duration}</li>
        <li>MONTHS</li>
        </ul> 
        </div>
 
        <div class="down">
        <ul class="nobullet">
-       <li>$${OneCarOffer.down}</li>
+       <li class="listyle" >$${downWithcomma}</li>
        <li>DOWN</li>
        </ul> 
        </div>
@@ -70,11 +86,9 @@ function renderOneCarOffer(OneCarOffer) {
 
     <div id="text">
     <ul class="textlist">
-    <li>This is an unodered list</li>
-    <li>This is an unodered list This is an unodered list</li>
-    <li>TThis is an unodered list This is an unodered list</li>
-    <li>This is an unodered list</li>
-    <li>This is an unodered list this a list with no order</li>
+    <li>Qualified lessees can lease a new 2021 LE Model 2515 for $${OneCarOffer.monthly} per month for ${OneCarOffer.duration} months with $${OneCarOffer.down} Due At Signing. Based on 10,000 miles/yr. Security Deposit waived. Lease includes $1,000 cash incentive and excludes tax, title, license, registration fees, and dealer options and charges.</li>
+    <li>Recent and soon to be college graduates: You can get a $500 Rebate on all new Toyota models when you finance or lease through Toyota Financial Services.</li>
+    <li>$500 Military Rebate for qualified U.S. Military Personnel</li>
     <li>This is an unodered list this a list with no order This is an unodered list this a list with no order This is an unodered list this a list with no order </li>
     </ul>
     </div>
@@ -87,8 +101,6 @@ function renderOneCarOffer(OneCarOffer) {
     <div class="modal3">
     <p>YOU HAVE CLICKED THE REQUEST A QUOTE BUTTON</p>
     <span class="X3" draggable="true" >&times;</span>
-    </div>
-
     </div>`;
 
 
@@ -117,8 +129,13 @@ function renderResultError(error) {
   div.innerHTML = `
 
   <div div class="error">
-     <img class="imgoffer" src="assets/error_page__img_desktop II.jpg" alt="car in front of a Toyota Store">
+  <div class="errorimg">
+  <img id="imgsorry" src="assets/error_page__img_desktop II.jpg" alt="car in front of a Toyota Store">
+  </div>
+      <div id="texterror">
       <h2>SORRY, NO OFFER FOUND</h2> 
+      </div>
+      
        <div class="buttonctr">
         <button class="actionbtnf">FIND A DEALER</button> 
         <button class="actionbtnr">REQUEST A QUOTE</button>     
