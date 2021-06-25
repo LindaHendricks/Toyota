@@ -1,17 +1,10 @@
 const urlResultSuccess = "https://dv.stk2.pro/dev/test/api.php?model=camry";
 const urlResultError = "https://dv.stk2.pro/dev/test/api.php";
-const url = "https://dv.stk2.pro/dev/test/api.php"; //"https://dv.stk2.pro/dev/test/api.php?model=camry"
+const url = "https://dv.stk2.pro/dev/test/api.php?model=camry"; //"https://dv.stk2.pro/dev/test/api.php?model=camry"
 
 const error = document.querySelector(`.error`);
-
 const btnquote = document.querySelector(`actionbtnr`);
 
-
-// btnquote.addEventListener("click",appear);
-
-// function appear() {
-//     modal.style.display = "block"
-// }
 
 const isSucess = true;
 
@@ -42,25 +35,35 @@ function renderOneCarOffer(OneCarOffer) {
 
     <div class="offerinfo">
        <div class="img">
-       
        <img src="assets/offer_page_img_desktop II.jpg" alt=${OneCarOffer.model}>
-    </div>
+       </div>
     
-    <div class="offerdetails">
+     <div class="offerdetails">
        <h2 class="monthly">${OneCarOffer.monthly} monthly</h2>
        <h2 class="duration">${OneCarOffer.duration} momths</h2>
        <h2 class="down">${OneCarOffer.down} down</h2>
+     </div>
+
+    <div id="text">
+    <ul>
+    <li>ksjcbqscjqsckjqkc</li>
+    <li>ksjcbqscjqsckjqkc ksjcbqscjqsckjqkc ksjcbqscjqsckjqkc</li>
+    <li>ksjcbqscjqsckjqkc ksjcbqscjqsckjqkc</li>
+    <li>ksjcbqscjqsckjqkc</li>
+    <li>ksjcbqscjqsckjqkc</li>
+    <li>I am a list element this is why when Linda write sentence to long this got to the bottom lien</li>
+    </ul>
     </div>
-    
-    <div class="actionbtn">
-       <button id="actionbtnri">Request Info</button>
+
+    <div id="btnaction">
+       <button class="actionbtnri" > REQUEST A QUOTE </button>
     </div>
-
-    
-
-
-
-
+     
+    </div>
+    <div class="modal3">
+    <p>YOU HAVE CLICKED THE REQUEST A QUOTE BUTTON</p>
+    <span class="X3" draggable="true" >&times;</span>
+    </div>
 
 
     </div>`;
@@ -70,11 +73,26 @@ function renderOneCarOffer(OneCarOffer) {
   parentDiv.append(div);
 
   div.addEventListener("click", (event) => {
-    if (event.target.matches(`button#actionbtnri `)) {
-      // console.log('clicked')
+    if (event.target.matches(`.actionbtnri`)) {
+      console.log(event.target);
+      appearBtnaction();
     }
   });
+
+ 
+  const X3 = document.querySelector(`.X3`)
+
+  X3.addEventListener("click", (event) => {
+    if (event.target.matches(`.X3 `)) {
+        console.log("clicked");
+        disappearx3 ();
+      } 
+  })
+
+
 }
+
+
 
 function renderResultError(error) {
   const parentDiv = document.querySelector(`div.offer`);
@@ -110,7 +128,6 @@ function renderResultError(error) {
   div.addEventListener("click", (event) => {
     if (event.target.matches(`.actionbtnr `)) {
       console.log(event.target);
-
       appearBtnr();
     }
   });
@@ -154,6 +171,11 @@ function disappearx2 () {
     modal2.style.display = "none";
   }
 
+  function disappearx3 () {
+    const modal3 = document.querySelector(`.modal3`)
+    modal3.style.display = "none";
+  }
+
 function appearBtnr() {
   const modal = document.querySelector(`.modal`);
   section = document.querySelector(`section`);
@@ -168,6 +190,12 @@ function appearBtnf() {
   console.log(modal2);
   modal2.style.display = "block";
 //   section.style.filter = "blur(6)";
+}
+
+function appearBtnaction () {
+    const modal3 = document.querySelector(`.modal3`);
+    console.log(modal3);
+    modal3.style.display = "block";
 }
 
 function renderURLError() {

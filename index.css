@@ -19,19 +19,7 @@ h2 {
     font-size: 16px;
   }
 
-  .actionbtnr {
-    
-    background-color: #f44336;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-  }
-
-  .actionbtnri {
+  .actionbtnri{
     
     background-color: #f44336;
     border: none;
@@ -73,6 +61,21 @@ h2 {
 
 } 
 
+.modal3 {
+    background: #f44336;
+    color: white;
+    margin: auto;
+    position: absolute;
+    padding: 50px;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    animation: 1s drop;
+    display: none
+
+} 
+
 @keyframes drop {
     0% {
         top: -100px;
@@ -87,8 +90,14 @@ h2 {
     position: relative;
     
 }
+
+.offerinfo {
+    height: 1200px;
+    position: relative
+}
+
  
-.buttonctr{
+.buttonctr {
 margin: 0;
 position: absolute;
 top: 50%;
@@ -118,5 +127,33 @@ transform: translate(-50%, -50%);
     top: 5px;
     font-size: 40px;
     cursor: pointer;
+
+}
+
+.X3 {
+    position: absolute;
+    right: 20px;
+    top: 5px;
+    font-size: 40px;
+    cursor: pointer;
+
+}
+
+#text {
+    width: 25%;
+    float: left;
+    padding-left: 130px;
+    padding-right: 130px;
+    padding-bottom: 130px;
+    padding-top:5px
+}
+
+#btnaction {
+    width: 25%;
+    float: left;
+    padding-left: 130px;
+    padding-right: 130px;
+    padding-bottom: 130px;
+    padding-top:5px
 
 }
