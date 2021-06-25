@@ -1,23 +1,21 @@
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
+const carModel = urlParams.get("model");
 
-const carModel = urlParams.get('model');
-
-const url = "https://dv.stk2.pro/dev/test/api.php?model=" + carModel
+const url = "https://dv.stk2.pro/dev/test/api.php?model=" + carModel;
 
 // "https://dv.stk2.pro/dev/test/api.php?model=" + carModel;
 // urlResultError - "https://dv.stk2.pro/dev/test/api.php";
 // urlResultCamrySuccess -  "https://dv.stk2.pro/dev/test/api.php?model=camry";
 // urlResultCorollaSuccess - "https://dv.stk2.pro/dev/test/api.php?model=corolla";
 
-
-document.addEventListener("DOMContentLoaded",successFail() );
+document.addEventListener("DOMContentLoaded", successFail());
 
 function successFail() {
-    fetch(url)
-      .then((response) => response.json())
-      .then((OneCarOffer) => renderResponseReturn(OneCarOffer));
-  }
+  fetch(url)
+    .then((response) => response.json())
+    .then((OneCarOffer) => renderResponseReturn(OneCarOffer));
+}
 
 function renderResponseReturn(OneCarOffer) {
   if (OneCarOffer.result == "success") {
@@ -32,51 +30,46 @@ function renderOneCarOffer(OneCarOffer) {
   const div = document.createElement(`div`);
   div.dataset.id = OneCarOffer.id;
 
-//   let titleImage = "";
-
-//   if (OneCarOffer.model == "Camry") {
-//     titleImage = "./assets/offercamry.jpg";
-//   } else if (OneCarOffer.model == "Corolla") {
-//     titleImage = "./assets/offercorolla.jpg";
-//   }
-
   const givenNumber = OneCarOffer.down;
-  console.log(givenNumber)
+  console.log(givenNumber);
 
-  internationalNumberFormat = new Intl.NumberFormat('en-US')
-  const downWithcomma = (internationalNumberFormat.format(givenNumber))
-  
+  internationalNumberFormat = new Intl.NumberFormat("en-US");
+  const downWithcomma = internationalNumberFormat.format(givenNumber);
+  const modelNameCapitalize = OneCarOffer.model.toUpperCase();
 
   div.innerHTML = `
 
     
 
      <div id="overlaping">
-       <div class="header">
+       <div id="header">
          <img id="imgsuccess" src="./assets/empty_header.jpg" alt="Toyota Store">
       </div>
-     <div class="car">
-         <img class="imgcar" src=${OneCarOffer.img} alt=${OneCarOffer.model}>
+     <div id="car">
+         <img id="imgcar" src=${OneCarOffer.img} alt=${OneCarOffer.model}>
+      </div>
+      <div id="title">
+      <h2 id="modeltitle"> 2021 ${modelNameCapitalize}</h2>
       </div>
      </div>
       
     
      <div class="offerdetails">
-       <div class="monthly">
+       <div id="monthly">
        <ul class="nobullet">
        <li class="listyle" >$${OneCarOffer.monthly}</li>
        <li>MONTHLY</li>
        </ul> 
        </div>
 
-       <div class="duration">
+       <div id="duration">
        <ul class="nobullet">
        <li class="listyle" >${OneCarOffer.duration}</li>
        <li>MONTHS</li>
        </ul> 
        </div>
 
-       <div class="down">
+       <div id="down">
        <ul class="nobullet">
        <li class="listyle" >$${downWithcomma}</li>
        <li>DOWN</li>
@@ -94,20 +87,19 @@ function renderOneCarOffer(OneCarOffer) {
     </div>
 
     <div id="btnaction">
-       <button class="actionbtnri" > REQUEST A QUOTE </button>
+       <button id="actionbtnrq" > REQUEST A QUOTE </button>
     </div>
      
     </div>
-    <div class="modal3">
+    <div id="modal3">
     <p>YOU HAVE CLICKED THE REQUEST A QUOTE BUTTON</p>
     <span class="X3" draggable="true" >&times;</span>
     </div>`;
 
-
   parentDiv.append(div);
 
   div.addEventListener("click", (event) => {
-    if (event.target.matches(`.actionbtnri`)) {
+    if (event.target.matches(`#actionbtnrq`)) {
       appearBtnaction();
     }
   });
@@ -129,25 +121,25 @@ function renderResultError(error) {
   div.innerHTML = `
 
   <div div class="error">
-  <div class="errorimg">
-  <img id="imgsorry" src="assets/error_page__img_desktop II.jpg" alt="car in front of a Toyota Store">
+   <div id="errorimg">
+   <img id="imgsorry" src="assets/error_page__img_desktop II.jpg" alt="car in front of a Toyota Store">
   </div>
       <div id="texterror">
       <h2>SORRY, NO OFFER FOUND</h2> 
       </div>
       
-       <div class="buttonctr">
-        <button class="actionbtnf">FIND A DEALER</button> 
-        <button class="actionbtnr">REQUEST A QUOTE</button>     
+       <div id="buttonctr">
+        <button id="actionbtnf">FIND A DEALER</button> 
+        <button id="actionbtnr">REQUEST A QUOTE</button>     
         </div>
         
         
-        <div class="modal">
+        <div id="modal">
         <p>YOU HAVE CLICKED THE REQUEST QUOTE BUTTON</p>
         <span class="X" draggable="true" >&times;</span>
     
     </div>
-      <div class="modal2">
+      <div id="modal2">
       <p>YOU HAVE CLICKED THE FIND A DEALER BUTTON</p>
       <span class="X2" draggable="true" >&times;</span>
     </div>
@@ -158,14 +150,14 @@ function renderResultError(error) {
   parentDiv.append(div);
 
   div.addEventListener("click", (event) => {
-    if (event.target.matches(`.actionbtnr `)) {
+    if (event.target.matches(`#actionbtnr `)) {
       console.log(event.target);
       appearBtnr();
     }
   });
 
   div.addEventListener("click", (event) => {
-    if (event.target.matches(`.actionbtnf `)) {
+    if (event.target.matches(`#actionbtnf `)) {
       console.log(event.target);
       appearBtnf();
     }
@@ -191,34 +183,34 @@ function renderResultError(error) {
 }
 
 function disappearx() {
-  const modal = document.querySelector(`.modal`);
+  const modal = document.querySelector(`#modal`);
   modal.style.display = "none";
 }
 
 function disappearx2() {
-  const modal2 = document.querySelector(`.modal2`);
+  const modal2 = document.querySelector(`#modal2`);
   modal2.style.display = "none";
 }
 
 function disappearx3() {
-  const modal3 = document.querySelector(`.modal3`);
+  const modal3 = document.querySelector(`#modal3`);
   modal3.style.display = "none";
 }
 
 function appearBtnr() {
-  const modal = document.querySelector(`.modal`);
+  const modal = document.querySelector(`#modal`);
   section = document.querySelector(`section`);
   modal.style.display = "block";
 }
 
 function appearBtnf() {
-  const modal2 = document.querySelector(`.modal2`);
+  const modal2 = document.querySelector(`#modal2`);
   section = document.querySelector(`section`);
   modal2.style.display = "block";
 }
 
 function appearBtnaction() {
-  const modal3 = document.querySelector(`.modal3`);
+  const modal3 = document.querySelector(`#modal3`);
   console.log(modal3);
   modal3.style.display = "block";
 }
@@ -233,5 +225,4 @@ function renderURLError() {
       </div>`;
 
   parentDiv.append(div);
-
 }

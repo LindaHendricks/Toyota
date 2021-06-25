@@ -9,7 +9,7 @@ h2 {
 }
 
 
-.actionbtnf {
+#actionbtnf {
     
     background-color: #f44336;
     border: none;
@@ -23,7 +23,7 @@ h2 {
   }
 
 
-  .actionbtnr {
+  #actionbtnr {
     background-color: #f44336;
     border: none;
     border-radius: 3px;
@@ -36,9 +36,7 @@ h2 {
   }
 
 
-  .actionbtnri{
-    background: rgb(201, 5, 208);
-
+  #actionbtnrq {
     background-color: #f44336;
     border: none;
     border-radius: 3px;
@@ -51,7 +49,7 @@ h2 {
   }
 
 
-.modal {
+#modal {
     background: #f44336;
     border-radius: 3px;
     color: white;
@@ -68,7 +66,7 @@ h2 {
 }  
 
 
-.modal2 {
+#modal2 {
     background: #f44336;
     border-radius: 3px;
     color: white;
@@ -85,7 +83,7 @@ h2 {
 } 
 
 
-.modal3 {
+#modal3 {
     background: #f44336;
     border-radius: 3px;
     color: white;
@@ -124,7 +122,7 @@ h2 {
 }
 
  
-.buttonctr {
+#buttonctr {
 padding-top: 0;
 position: absolute;
 top: 50%;
@@ -136,7 +134,7 @@ transform: translate(-50%, -50%);
 
 
 
-  .X {
+.X {
       position: absolute;
       right: 20px;
       top: 5px;
@@ -146,7 +144,7 @@ transform: translate(-50%, -50%);
   }
 
 
-  .X2 {
+.X2 {
     position: absolute;
     right: 20px;
     top: 5px;
@@ -185,7 +183,7 @@ ul.textlist {
   text-align: center;
 }
 
-.monthly {
+#monthly {
     height: 30px;
     width: 10.33%;
     float: left;
@@ -193,7 +191,7 @@ ul.textlist {
     padding-top: 20px;  
 }
 
-.duration {
+#duration {
   
     height: 30px;
     width: 10.33%;
@@ -204,7 +202,7 @@ ul.textlist {
 }
 
 
-.down {
+#down {
     
     height: 30px;
     width: 10.33%;
@@ -221,14 +219,14 @@ ul.textlist {
     text-align: center;
 }
 
-.header {
+#header {
     margin: auto;
     width: 50%;
     padding: 10px;
     
 }
 
-.car {
+#car {
     position: absolute;
     margin-top: -300px;
     width: 50%;
@@ -236,12 +234,27 @@ ul.textlist {
     right: 10px
   }
 
-.imgcar {
+
+
+ #title {
+    position: absolute;
+    margin-top: -100px;
+    width: 50%;
+    padding: 10px;
+    left: 120px
+ } 
+
+ #modeltitle {
+     color: white;
+     font-size: 32px;
+ }
+
+#imgcar {
     height: 50%;
     width: 50%
 }
 
-.errorimg {
+#errorimg {
     margin: auto;
     width: 50%;
 }
