@@ -1,22 +1,18 @@
-const urlResultSuccess = "https://dv.stk2.pro/dev/test/api.php?model=camry"
-const urlResultError = "https://dv.stk2.pro/dev/test/api.php"
-const url = "https://dv.stk2.pro/dev/test/api.php"
 
-const error = document.querySelector(`.error`);
-const btnquote = document.querySelector(`actionbtnr`);
+// urlResultError - "https://dv.stk2.pro/dev/test/api.php";
+// urlResultCamrySuccess -  "https://dv.stk2.pro/dev/test/api.php?model=camry";
+// urlResultCorollaSuccess - "https://dv.stk2.pro/dev/test/api.php?model=corolla";
+const url = "https://dv.stk2.pro/dev/test/api.php?model=camry";
 
 
-const isSucess = true;
+document.addEventListener("DOMContentLoaded",successFail() );
 
-document.addEventListener(
-  "DOMContentLoaded",
 
-  function successFail() {
+function successFail() {
     fetch(url)
       .then((response) => response.json())
       .then((jsonBody) => renderResponseReturn(jsonBody));
   }
-);
 
 function renderResponseReturn(jsonBody) {
   if (jsonBody.result == "success") {
@@ -34,11 +30,13 @@ function renderOneCarOffer(OneCarOffer) {
   let titleImage = "";
 
   if (OneCarOffer.model == "Camry") {
-      titleImage = "./assets/offercamry.jpg"
+    titleImage = "./assets/offercamry.jpg";
+  } else if (OneCarOffer.model == "Corolla") {
+    titleImage = "./assets/offercorolla.jpg";
   }
-  else if (OneCarOffer.model == "Corolla") {
-      titleImage = "./assets/offercorolla.jpg"
-  }
+
+  // I decided not to fetch the image so it could look like the psd you sent by including the img "page offer Corolla/Camry".
+
 
   div.innerHTML = `
 
@@ -72,12 +70,12 @@ function renderOneCarOffer(OneCarOffer) {
 
     <div id="text">
     <ul class="textlist">
-    <li>ksjcbqscjqsckjqkc</li>
-    <li>ksjcbqscjqsckjqkc ksjcbqscjqsckjqkc ksjcbqscjqsckjqkc</li>
-    <li>ksjcbqscjqsckjqkc ksjcbqscjqsckjqkc</li>
-    <li>ksjcbqscjqsckjqkc</li>
-    <li>ksjcbqscjqsckjqkc</li>
-    <li>I am a list element this is why when Linda write sentence to long this got to the bottom lien</li>
+    <li>This is an unodered list</li>
+    <li>This is an unodered list This is an unodered list</li>
+    <li>TThis is an unodered list This is an unodered list</li>
+    <li>This is an unodered list</li>
+    <li>This is an unodered list this a list with no order</li>
+    <li>This is an unodered list this a list with no order This is an unodered list this a list with no order This is an unodered list this a list with no order </li>
     </ul>
     </div>
 
@@ -91,34 +89,25 @@ function renderOneCarOffer(OneCarOffer) {
     <span class="X3" draggable="true" >&times;</span>
     </div>
 
-
     </div>`;
 
-  // I decided not to fetch the image so it could look like the psd you  sent by including the img "page offer".
 
   parentDiv.append(div);
 
   div.addEventListener("click", (event) => {
     if (event.target.matches(`.actionbtnri`)) {
-      console.log(event.target);
       appearBtnaction();
     }
   });
 
- 
-  const X3 = document.querySelector(`.X3`)
+  const X3 = document.querySelector(`.X3`);
 
   X3.addEventListener("click", (event) => {
     if (event.target.matches(`.X3 `)) {
-        console.log("clicked");
-        disappearx3 ();
-      } 
-  })
-
-
+      disappearx3();
+    }
+  });
 }
-
-
 
 function renderResultError(error) {
   const parentDiv = document.querySelector(`div.offer`);
@@ -162,66 +151,59 @@ function renderResultError(error) {
     if (event.target.matches(`.actionbtnf `)) {
       console.log(event.target);
       appearBtnf();
-    }   
-  }); 
+    }
+  });
 
-  const X = document.querySelector(`.X`)
+  const X = document.querySelector(`.X`);
 
   X.addEventListener("click", (event) => {
     if (event.target.matches(`.X `)) {
-        console.log("clicked");
-        disappearx ();
-      } 
-  })
+      console.log("clicked");
+      disappearx();
+    }
+  });
 
-  const X2 = document.querySelector(`.X2`)
+  const X2 = document.querySelector(`.X2`);
 
   X2.addEventListener("click", (event) => {
     if (event.target.matches(`.X2 `)) {
-        console.log("clicked");
-        disappearx2 ();
-      } 
-  })
-
-
+      console.log("clicked");
+      disappearx2();
+    }
+  });
 }
 
-
-function disappearx () {
-  const modal = document.querySelector(`.modal`)
+function disappearx() {
+  const modal = document.querySelector(`.modal`);
   modal.style.display = "none";
 }
 
-function disappearx2 () {
-    const modal2 = document.querySelector(`.modal2`)
-    modal2.style.display = "none";
-  }
+function disappearx2() {
+  const modal2 = document.querySelector(`.modal2`);
+  modal2.style.display = "none";
+}
 
-  function disappearx3 () {
-    const modal3 = document.querySelector(`.modal3`)
-    modal3.style.display = "none";
-  }
+function disappearx3() {
+  const modal3 = document.querySelector(`.modal3`);
+  modal3.style.display = "none";
+}
 
 function appearBtnr() {
   const modal = document.querySelector(`.modal`);
   section = document.querySelector(`section`);
-  console.log(modal);
   modal.style.display = "block";
-//   section.style.filter = "blur(6)";
 }
 
 function appearBtnf() {
   const modal2 = document.querySelector(`.modal2`);
   section = document.querySelector(`section`);
-  console.log(modal2);
   modal2.style.display = "block";
-//   section.style.filter = "blur(6)";
 }
 
-function appearBtnaction () {
-    const modal3 = document.querySelector(`.modal3`);
-    console.log(modal3);
-    modal3.style.display = "block";
+function appearBtnaction() {
+  const modal3 = document.querySelector(`.modal3`);
+  console.log(modal3);
+  modal3.style.display = "block";
 }
 
 function renderURLError() {
@@ -234,4 +216,5 @@ function renderURLError() {
       </div>`;
 
   parentDiv.append(div);
+
 }

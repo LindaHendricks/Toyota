@@ -2,10 +2,12 @@ body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+
 h2 {
     text-align: center;
     size: 22px
 }
+
 
 .actionbtnf {
     
@@ -19,6 +21,7 @@ h2 {
     font-size: 16px;
   }
 
+
   .actionbtnr {
     
     background-color: #f44336;
@@ -31,6 +34,7 @@ h2 {
     font-size: 16px;
   }
 
+
   .actionbtnri{
     
     background-color: #f44336;
@@ -42,6 +46,7 @@ h2 {
     display: inline-block;
     font-size: 16px;
   }
+
 
 .modal {
     background: #f44336;
@@ -58,6 +63,7 @@ h2 {
 
 }  
 
+
 .modal2 {
     background: #f44336;
     color: white;
@@ -72,6 +78,7 @@ h2 {
     display: none
 
 } 
+
 
 .modal3 {
     background: #f44336;
@@ -88,6 +95,7 @@ h2 {
 
 } 
 
+
 @keyframes drop {
     0% {
         top: -100px;
@@ -97,15 +105,17 @@ h2 {
     }
 }
 
+
 .error {
     height: 1200px;
     position: relative;
     
 }
 
+
 .offerinfo {
-    /* height: 1200px;
-    position: relative */
+    height: 1200px;
+    position: relative
 }
 
  
@@ -118,11 +128,13 @@ left: 50%;
 transform: translate(-50%, -50%);
 }
 
+
   img {
     display: block;
     margin-left: auto;
     margin-right: auto
   }
+
 
   .X {
       position: absolute;
@@ -133,14 +145,15 @@ transform: translate(-50%, -50%);
 
   }
 
+
   .X2 {
     position: absolute;
     right: 20px;
     top: 5px;
     font-size: 40px;
     cursor: pointer;
-
 }
+
 
 .X3 {
     position: absolute;
@@ -148,8 +161,8 @@ transform: translate(-50%, -50%);
     top: 5px;
     font-size: 40px;
     cursor: pointer;
-
 }
+
 
 ul.nobullet {
     list-style-type: none; /* Remove bullets */
@@ -157,10 +170,11 @@ ul.nobullet {
     margin: 0; /* Remove margins */
   }
 
+
 ul.textlist {
-    list-style-type: '-';
-    
+    list-style-type: '-';   
 }
+
 
 .monthly {
     height: 30px;
@@ -168,9 +182,9 @@ ul.textlist {
     float: left;
     text-align:  right;
     margin: 0 1.5%;
-    padding-top: 20px;
-    
+    padding-top: 20px;  
 }
+
 
 .duration {
     height: 30px;
@@ -178,8 +192,7 @@ ul.textlist {
     float: left;
     text-align:  center;
     margin: 0 1.5%;
-    padding-top: 20px;
-    
+    padding-top: 20px;   
 }
 
 
@@ -193,8 +206,8 @@ ul.textlist {
     
 }
 
+
 #text {
-   
     width: 30%;
     float: left;
     padding-left: 420px;
@@ -203,6 +216,7 @@ ul.textlist {
     padding-top:25px;
     margin-top: 0
 }
+
 
 #btnaction {
     
@@ -213,5 +227,4 @@ ul.textlist {
     padding-bottom: 130px;
     padding-top: 25px;
     margin-top: 0
-
 }
