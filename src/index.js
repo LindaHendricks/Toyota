@@ -38,9 +38,6 @@ function renderOneCarOffer(OneCarOffer) {
   const modelNameCapitalize = OneCarOffer.model.toUpperCase();
 
   div.innerHTML = `
-
-    
-
      <div id="overlaping">
        <div id="header">
          <img id="imgsuccess" src="./assets/empty_header.jpg" alt="Toyota Store">
@@ -52,7 +49,6 @@ function renderOneCarOffer(OneCarOffer) {
       <h2 id="modeltitle"> 2021 ${modelNameCapitalize}</h2>
       </div>
      </div>
-      
     
      <div class="offerdetails">
        <div id="monthly">
@@ -78,11 +74,11 @@ function renderOneCarOffer(OneCarOffer) {
      </div>
 
     <div id="text">
-    <ul class="textlist">
-    <li>Qualified lessees can lease a new 2021 LE Model 2515 for $${OneCarOffer.monthly} per month for ${OneCarOffer.duration} months with $${OneCarOffer.down} Due At Signing. Based on 10,000 miles/yr. Security Deposit waived. Lease includes $1,000 cash incentive and excludes tax, title, license, registration fees, and dealer options and charges.</li>
-    <li>Recent and soon to be college graduates: You can get a $500 Rebate on all new Toyota models when you finance or lease through Toyota Financial Services.</li>
-    <li>$500 Military Rebate for qualified U.S. Military Personnel</li>
-    <li>This is an unodered list this a list with no order This is an unodered list this a list with no order This is an unodered list this a list with no order </li>
+    <ul id="textlist">
+    <li class="textlistli"><span>Qualified lessees can lease a new 2021 LE Model 2515 for $${OneCarOffer.monthly} per month for ${OneCarOffer.duration} months with $${OneCarOffer.down} Due At Signing. Based on 10,000 miles/yr. Security Deposit waived. Lease includes $1,000 cash incentive and excludes tax, title, license, registration fees, and dealer options and charges.</span></li>
+    <li class="textlistli"><span>Recent and soon to be college graduates: You can get a $500 Rebate on all new Toyota models when you finance or lease through Toyota Financial Services.</span></li>
+    <li class="textlistli"><span>$500 Military Rebate for qualified U.S. Military Personnel</span></li>
+    <li class="textlistli"><span>This is an unodered list this a list with no order This is an unodered list this a list with no order This is an unodered list this a list with no order.</span></li>
     </ul>
     </div>
 
@@ -119,7 +115,6 @@ function renderResultError(error) {
   console.log(error);
 
   div.innerHTML = `
-
   <div div class="error">
    <div id="errorimg">
    <img id="imgsorry" src="assets/error_page__img_desktop II.jpg" alt="car in front of a Toyota Store">
@@ -143,8 +138,6 @@ function renderResultError(error) {
       <p>YOU HAVE CLICKED THE FIND A DEALER BUTTON</p>
       <span id="X2" draggable="true" >&times;</span>
     </div>
-        
-
  </div>`;
 
   parentDiv.append(div);
