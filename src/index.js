@@ -1,6 +1,6 @@
-const urlResultSuccess = "https://dv.stk2.pro/dev/test/api.php?model=camry";
-const urlResultError = "https://dv.stk2.pro/dev/test/api.php";
-const url = "https://dv.stk2.pro/dev/test/api.php?model=camry"; //"https://dv.stk2.pro/dev/test/api.php?model=camry"
+const urlResultSuccess = "https://dv.stk2.pro/dev/test/api.php?model=camry"
+const urlResultError = "https://dv.stk2.pro/dev/test/api.php"
+const url = "https://dv.stk2.pro/dev/test/api.php"
 
 const error = document.querySelector(`.error`);
 const btnquote = document.querySelector(`actionbtnr`);
@@ -31,11 +31,20 @@ function renderOneCarOffer(OneCarOffer) {
   const div = document.createElement(`div`);
   div.dataset.id = OneCarOffer.id;
 
+  let titleImage = "";
+
+  if (OneCarOffer.model == "Camry") {
+      titleImage = "./assets/offercamry.jpg"
+  }
+  else if (OneCarOffer.model == "Corolla") {
+      titleImage = "./assets/offercorolla.jpg"
+  }
+
   div.innerHTML = `
 
     <div class="offerinfo">
        <div class="img">
-       <img src="assets/offer_page_img_desktop II.jpg" alt=${OneCarOffer.model}>
+       <img src=${titleImage} alt=${OneCarOffer.model}>
        </div>
     
      <div class="offerdetails">
@@ -85,7 +94,7 @@ function renderOneCarOffer(OneCarOffer) {
 
     </div>`;
 
-  // I decided not to fetch the image so it could look like the psh you  sent by including the img "page offer".
+  // I decided not to fetch the image so it could look like the psd you  sent by including the img "page offer".
 
   parentDiv.append(div);
 
