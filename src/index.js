@@ -93,7 +93,7 @@ function renderOneCarOffer(OneCarOffer) {
     </div>
     <div id="modal3">
     <p>YOU HAVE CLICKED THE REQUEST A QUOTE BUTTON</p>
-    <span class="X3" draggable="true" >&times;</span>
+    <span id="X3" draggable="true" >&times;</span>
     </div>`;
 
   parentDiv.append(div);
@@ -104,10 +104,10 @@ function renderOneCarOffer(OneCarOffer) {
     }
   });
 
-  const X3 = document.querySelector(`.X3`);
+  const X3 = document.querySelector(`#X3`);
 
   X3.addEventListener("click", (event) => {
-    if (event.target.matches(`.X3 `)) {
+    if (event.target.matches(`#X3 `)) {
       disappearx3();
     }
   });
@@ -136,12 +136,12 @@ function renderResultError(error) {
         
         <div id="modal">
         <p>YOU HAVE CLICKED THE REQUEST QUOTE BUTTON</p>
-        <span class="X" draggable="true" >&times;</span>
+        <span id="X" draggable="true" >&times;</span>
     
     </div>
       <div id="modal2">
       <p>YOU HAVE CLICKED THE FIND A DEALER BUTTON</p>
-      <span class="X2" draggable="true" >&times;</span>
+      <span id="X2" draggable="true" >&times;</span>
     </div>
         
 
@@ -163,19 +163,19 @@ function renderResultError(error) {
     }
   });
 
-  const X = document.querySelector(`.X`);
+  const X = document.querySelector(`#X`);
 
   X.addEventListener("click", (event) => {
-    if (event.target.matches(`.X `)) {
+    if (event.target.matches(`#X `)) {
       console.log("clicked");
       disappearx();
     }
   });
 
-  const X2 = document.querySelector(`.X2`);
+  const X2 = document.querySelector(`#X2`);
 
   X2.addEventListener("click", (event) => {
-    if (event.target.matches(`.X2 `)) {
+    if (event.target.matches(`#X2 `)) {
       console.log("clicked");
       disappearx2();
     }

@@ -8,6 +8,27 @@ h2 {
     size: 22px
 }
 
+.error {
+    height: 1200px;
+    position: relative; 
+}
+
+
+.offerinfo {
+    height: 1200px;
+    position: relative
+}
+
+
+#buttonctr {
+    padding-top: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    }
+    
 
 #actionbtnf {
     
@@ -110,41 +131,16 @@ h2 {
 }
 
 
-.error {
-    height: 1200px;
-    position: relative; 
-}
-
-
-.offerinfo {
-    height: 1200px;
-    position: relative
-}
-
- 
-#buttonctr {
-padding-top: 0;
-position: absolute;
-top: 50%;
-left: 50%;
--ms-transform: translate(-50%, -50%);
-transform: translate(-50%, -50%);
-}
-
-
-
-
-.X {
+#X {
       position: absolute;
       right: 20px;
       top: 5px;
       font-size: 40px;
       cursor: pointer;
-
   }
 
 
-.X2 {
+#X2 {
     position: absolute;
     right: 20px;
     top: 5px;
@@ -153,7 +149,7 @@ transform: translate(-50%, -50%);
 }
 
 
-.X3 {
+#X3 {
     position: absolute;
     right: 20px;
     top: 5px;
